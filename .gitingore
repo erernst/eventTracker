@@ -1,0 +1,11 @@
+.DS_Store
+RemoteSystemsTempFiles
+bin/
+target/
+build/
+.metadata
+.gradle
+.recommenders
+Servers/
+.settings
+.classpath

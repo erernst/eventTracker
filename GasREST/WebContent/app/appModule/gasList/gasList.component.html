@@ -1,0 +1,37 @@
+<h1>NgTodo</h1><h3>{{vm.getNumItems()}}</h3>
+Show All: <input type="checkbox" ng-model="vm.showAll"/>
+<form>
+  <input type="text" placeholder="Gas"  ng-model="g.id"/><br />
+  <input type="submit" value="Add Fillup" ng-click="vm.addGas(g); g = {}"/>
+</form>
+
+<form class="form" ng-show="vm.editGas" >
+  <input type="text" ng-model="vm.editGas.amount"/><br />
+<input type="text" ng-model="vm.editGas.description"/><br />
+<button ng-click="vm.cancel()">Cancel</button>
+<button ng-click="vm.updateGas(vm.editGas)">Save</button>
+
+</form>
+
+<div id="selected" ng-show="vm.selected" ng-hide="vm.editGas">
+
+ID:   {{vm.selected.id}}
+AMOUNT: {{vm.selected.amount}}
+SMILEAGE: {{vm.selected.sMileage}}
+EMILEAGE: {{vm.selected.eMileage}}
+<button ng-click="vm.displayTable()">Hide</button>
+<button ng-click="vm.setEditTodo()">Edit</button>
+</div>
+
+<table> 
+<td>Amount</td><td>Start</td><td>End</td>
+
+<tr ng-repeat="g in vm.gasses "> <td ng-click="vm.select(g.id)"  ng-hide="vm.selected">{{t.task}}</td>
+
+
+<td><button ng-click="vm.destroy(g.id)">X</button></td></tr>
+
+
+</table>
+
+
